@@ -48,10 +48,10 @@ gulp.task('clean', function(done) {
 //=======================================================================
 // Copy
 //=======================================================================
-// gulp.task('copy:fonts', function() {
-// 	return gulp.src(GLOBS.fonts)
-// 	.pipe(gulp.dest(path.join('dist', 'fonts')));
-// });
+gulp.task('copy:fonts', function() {
+	return gulp.src(GLOBS.fonts)
+	.pipe(gulp.dest(path.join('dist', 'fonts')));
+});
 
 gulp.task('copy:images', function() {
 	return gulp.src(GLOBS.images)
@@ -64,7 +64,7 @@ gulp.task('copy:html', function() {
 });
 
 gulp.task('copy', function(done) {
-	seq('copy:images', 'copy:html', done);
+	seq('copy:images', 'copy:html', 'copy:fonts', done);
 });
 
 //=======================================================================
@@ -95,21 +95,12 @@ gulp.task('css', function(done) {
 gulp.task('icons', function() {
 	return gulp.src(GLOBS.icons)
 		.pipe(fontIcon({
-			fontName: 'smart-icon-font',
+			fontName: 'icons-font',
 			fontAlias: 'icon',
 			normalize: true,
 			fontHeight: 1001 }))
 		.pipe(gulp.dest('dist/fonts/icons'));
 });
-
-//=======================================================================
-// Uglify and minify Resources
-//=======================================================================
-// gulp.task('languages', function() {
-// 		return gulp.src(GLOBS.languages)
-// 			.pipe(jsonMinify())
-// 			.pipe(gulp.dest(path.join('dist', 'languages')));
-// });
 
 //=======================================================================
 // Uglify and minify JS
@@ -143,7 +134,7 @@ gulp.task('watch', function() {
 // Sequences
 //=======================================================================
 gulp.task('build', function(done) {
-	seq('clean', 'copy', 'css', done);
+	seq('clean', 'copy', 'css', 'icons', done);
 });
 
 gulp.task('default', function(done) {
