@@ -25,6 +25,7 @@ GLOBS.fonts 			= 'src/fonts/*';
 GLOBS.icons 			= 'src/fonts/icons/*.svg';
 GLOBS.libs 				= ['src/libs/*', 'src/libs/**/*'];
 GLOBS.images			= 'src/img/*';
+GLOBS.js					= 'src/js/*';
 GLOBS.less 				= 'src/less/boti.less';
 
 GLOBS.html 				= ['src/index.html', 'src/sample.html'];
@@ -63,8 +64,20 @@ gulp.task('copy:html', function() {
 	.pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy:libs', function() {
+	return gulp.src(GLOBS.libs)
+	.pipe(gulp.dest(path.join('dist', 'libs')));
+});
+
+gulp.task('copy:js', function() {
+	return gulp.src(GLOBS.js)
+	.pipe(gulp.dest(path.join('dist', 'js')));
+});
+
+
+
 gulp.task('copy', function(done) {
-	seq('copy:images', 'copy:html', 'copy:fonts', done);
+	seq('copy:images', 'copy:html', 'copy:fonts', 'copy:libs', 'copy:js', done);
 });
 
 //=======================================================================
