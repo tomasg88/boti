@@ -37,6 +37,18 @@ $(document).ready(function() {
       $('.slide').each(function(i, img) {
         $(img).attr('src', IMG_PATH + LANDSCAPE_IMG[i]);
       });
+      if (IS_MOBILE) {
+        fillExtraBars(true);
+      }
+    }
+  }
+
+  // Para celular en landscape, agrega barras.
+  function fillExtraBars(add) {
+    if (add) {
+      $('.extra').show();
+    } else {
+      $('.extra').show();
     }
   }
 
