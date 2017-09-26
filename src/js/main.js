@@ -48,7 +48,7 @@ $(document).ready(function() {
     if (add) {
       $('.extra').show();
     } else {
-      $('.extra').show();
+      $('.extra').hide();
     }
   }
 
