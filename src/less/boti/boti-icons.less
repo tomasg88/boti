@@ -2,26 +2,73 @@
 
 .icon {
 	position: absolute;
-	font-size: 30px;
 	color: #fff;
+	font-size: 35px;
 	left: 0%;
 	top: 48%;
-
-	&.extra-left {
-		left: 10%;
+	&.icon-insta {
+		font-size: 28px;
+		margin-left: 3px;
 	}
-
-	&.icon-fb {
-		font-size: 35px;
-	}
-
 	&.icon-location {
 		top: 0;
 		font-size: 25px;
 		left: 4%;
+	}
+}
 
-		&.extra-left {
-			left: 20%;
+// Media queries
+//-------------------------
+// XXS queries
+@media (max-width: @screen-xxs-max) {
+	.icon {
+		left: 10%;
+		&.icon-location {
+			left: 10%;
+		}
+	}
+}
+// XS queries
+@media (min-width: @screen-xs) and (max-width: @screen-xs-max) {
+	.icon {
+		left: 12%;
+
+		&.icon-location {
+			left: 14%;
+		}
+	}
+}
+// SM queries
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+	.icon {
+		font-size: 23px;
+		&.icon-insta {
+			font-size: 21px;
+		}
+		&.icon-location {
+			margin-top: 3px;
+			font-size: 16px;
+		}
+	}
+}
+// MD queries
+@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+	.icon {
+		font-size: 28px;
+		&.icon-insta {
+			font-size: 25px;
+		}
+		&.icon-location {
+			font-size: 20px;
+		}
+	}
+}
+
+@media (min-width: @screen-xl) {
+	.icon {
+		left: 2%;
+		&.icon-location {
+			left: 6%;
 		}
 	}
 }

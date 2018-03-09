@@ -8,3 +8,51 @@
   padding-right: 0;
   &:extend(.clearfix all);
 }
+
+
+// de type.less
+h5, h6 {
+  letter-spacing: 1.8px;
+}
+
+// Media queries
+//-----------------------------------------
+// XXS queries - same as MD
+@media (max-width: @screen-xxs-max) {
+  .h5, h5 {
+    font-size: 10px;
+  }
+  .h6, h6 {
+    font-size: 9px;
+  }
+  .h5, h5,
+  .h6, h6 {
+    letter-spacing: 1.5px;
+  }
+}
+// SM Queries
+@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+  .h5, h5 {
+    font-size: 8px;
+  }
+  .h6, h6 {
+    font-size: 7px;
+  }
+  .h5, h5,
+  .h6, h6 {
+    letter-spacing: 1.0px;
+  }
+}
+// MD Queries
+@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+  .h5, h5 {
+    font-size: 10px;
+  }
+  .h6, h6 {
+    font-size: 9px;
+  }
+  .h5, h5,
+  .h6, h6 {
+    letter-spacing: 1.5px;
+  }
+}
